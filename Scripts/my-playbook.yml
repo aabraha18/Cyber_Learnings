@@ -1,0 +1,5 @@
+---
+- name: My First Playbook
+  hosts: webservers
+  become: true
+  tasks:
