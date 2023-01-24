@@ -14,7 +14,7 @@ These files have been tested and used to generate a live ELK deployment on Azure
 - [Metricbeat-playbook.yml](https://github.com/aabraha18/Cyber-Learnings/blob/c38061595dee4ad2cf9e9d2f4da8d3e296b9ff5d/Ansible/metricbeat-config.yml)
 
 This document contains the following details:
-- Description of the Topologu
+- Description of the Topology
 - Access Policies
 - ELK Configuration
   - Beats in Use
@@ -27,7 +27,7 @@ This document contains the following details:
 The main purpose of this network is to expose a load-balanced and monitored instance of DVWA, the D*mn Vulnerable Web Application.
 
 Load balancing ensures that the application will be highly available, in addition to restricting inbound requests to the network.
-- _TODO: What aspect of security do load balancers protect? What is the advantage of a jump box?_  
+
         - Load Balancers protect a system from potential attacks by evenly distributing web traffic across multiple servers.
 
 Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the data and system logs.
