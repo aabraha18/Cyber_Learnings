@@ -24,11 +24,9 @@ This document contains the following details:
 
 ### Description of the Topology
 
-The main purpose of this network is to expose a load-balanced and monitored instance of DVWA, the D*mn Vulnerable Web Application.
+The main purpose of this network is to expose a load-balanced and monitored instance of DVWA, the D*mn Vulnerable Web Application. 
 
-  - Load balancing ensures that the application will be highly available, in addition to restricting inbound requests to the network.
-
-  - Load Balancers protect a system from potential attacks by evenly distributing web traffic across multiple servers.
+Load balancing ensures that the application will be highly available, in addition to restricting inbound requests to the network. Load balancers also protect a system from potential attacks by evenly distributing web traffic across multiple servers.
 
 Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the data and system logs.
   - Filebeat collects data about the file system.
@@ -47,11 +45,9 @@ The configuration details of each machine may be found below.
 
 The machines on the internal network are not exposed to the public Internet. 
 
-Only the jumpbox machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses:
-  - Workstation IP
+Only the jumpbox machine can accept connections from the Internet. Access to this machine is only allowed from the Workstation IP.
 
-Machines within the network can only be accessed by the workstation and internet.
-  - Allowed the Jump box machine with the ansible container to have access to the ELK VM with IP address: 10.0.0.4
+Machines within the network can only be accessed by the workstation and internet. Allowing the Jump box machine with the ansible container to have access to the ELK VM with IP address: 10.0.0.4
 
 A summary of the access policies in place can be found in the table below.
 
@@ -77,14 +73,13 @@ The following screenshot displays the result of running `docker ps` after succes
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
 - Web 1: 10.0.0.5
-- Web: 2 10.0.0.6
+- Web 2: 10.0.0.6
 
-We have installed the following Beats on these machines:
-- Filebeat and Metricbeat
+The following Beats have been installed on these machines:
+- Filebeat
+- Metricbeat
 
-These Beats allow us to collect the following information from each machine:
-  - Filebeat collects and organizes log files to send to Logstash and ElasticSearch. It monitors which files have changed and when. 
-  - Metricbeat collects metrics and statistics. i.e., Collecting data, memory usage, etc.
+Filebeat collects and organizes log files to send to Logstash and ElasticSearch, monitoring which files changed and when. Metricbeat collects metrics and statistics. (i.e., collecting data, memory usage, etc.)
 
 ### Using the Playbook
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
@@ -92,13 +87,13 @@ In order to use the playbook, you will need to have an Ansible control node alre
 SSH into the control node and follow the steps below:
 - Copy the filebeat-config.yml file and metricbeat-config.yml file to the /etc/ansible/files/ directory.
 - Update the filebeat-config.yml file and metricbeat-config.yml file to include the ELK IP 10.1.0.4 on ports 5601 and 9200.
-- Run the playbook, and navigate to Kibana > Docker Metrics > Module status > Check data to check that the installation worked as expected.
+- Run the playbook, and navigate to Kibana > Docker Metrics > Module status > Check data to ensure that the installation worked as expected.
 
 - [Filebeat-config.yml](https://github.com/aabraha18/Cyber-Learnings/blob/c38061595dee4ad2cf9e9d2f4da8d3e296b9ff5d/Ansible/filebeat-config.yml)
 - [Metricbeat-config.yml](https://github.com/aabraha18/Cyber-Learnings/blob/c38061595dee4ad2cf9e9d2f4da8d3e296b9ff5d/Ansible/metricbeat-config.yml) 
 
 
-The Elk-playbook.yml file is the playbook located in the /etc/ansible/ directory. You must update the /etc/ansible/hosts/ file with the IP's of the webservers and ELK servers. You specify which machine to install ELK by updating the ansible hosts file with the ELK IP address and python script. Where as with Filebeat, you must update the filebeat-config.yml file to work with the ELK server. Then navigate to http://20.114.172.54:5601/app/kibanato and check if the ELK server is running.
+The Elk-playbook.yml file is the playbook located in the /etc/ansible/ directory. You must update the /etc/ansible/hosts/ file with the IP's of the webservers and ELK servers. You specify which machine to install ELK by updating the ansible hosts file with the ELK IP address and python script. Where as with Filebeat, you must update the filebeat-config.yml file to work with the ELK server. Then navigate to http://20.114.172.54:5601/app/kibana to ensure the ELK server is running.
 
 
 Commands to run the playbook:
